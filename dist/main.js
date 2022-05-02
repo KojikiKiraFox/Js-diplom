@@ -16,7 +16,17 @@
   \**********************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_contacts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/contacts */ \"./src/modules/contacts.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./src/modules/menu.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scroll */ \"./src/modules/scroll.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ \"./src/modules/modal.js\");\n/* harmony import */ var _modules_maskPhone__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/maskPhone */ \"./src/modules/maskPhone.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_contacts__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\r\n;(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n;(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\r\n;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"])()\r\n;(0,_modules_maskPhone__WEBPACK_IMPORTED_MODULE_4__[\"default\"])()\n\n//# sourceURL=webpack://layout/./src/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _modules_contacts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/contacts */ \"./src/modules/contacts.js\");\n/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/menu */ \"./src/modules/menu.js\");\n/* harmony import */ var _modules_scroll__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/scroll */ \"./src/modules/scroll.js\");\n/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/modal */ \"./src/modules/modal.js\");\n/* harmony import */ var _modules_maskPhone__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/maskPhone */ \"./src/modules/maskPhone.js\");\n/* harmony import */ var _modules_formula__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./modules/formula */ \"./src/modules/formula.js\");\n/* harmony import */ var _modules_accordion__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./modules/accordion */ \"./src/modules/accordion.js\");\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n\r\n(0,_modules_contacts__WEBPACK_IMPORTED_MODULE_0__[\"default\"])()\r\n;(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__[\"default\"])()\r\n;(0,_modules_scroll__WEBPACK_IMPORTED_MODULE_2__[\"default\"])()\r\n;(0,_modules_modal__WEBPACK_IMPORTED_MODULE_3__[\"default\"])()\r\n;(0,_modules_maskPhone__WEBPACK_IMPORTED_MODULE_4__[\"default\"])()\r\n;(0,_modules_formula__WEBPACK_IMPORTED_MODULE_5__[\"default\"])()\r\n;(0,_modules_accordion__WEBPACK_IMPORTED_MODULE_6__[\"default\"])()\n\n//# sourceURL=webpack://layout/./src/index.js?");
+
+/***/ }),
+
+/***/ "./src/modules/accordion.js":
+/*!**********************************!*\
+  !*** ./src/modules/accordion.js ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst accordion = () => {\r\n    const accordion = document.querySelector('.accordion'),\r\n      titleBlocks = accordion.querySelectorAll('.title_block');\r\n  \r\n    accordion.addEventListener('click', event => {\r\n      if (event.target.closest('.title_block').classList.contains('msg-active')) {\r\n        event.target.classList.remove('msg-active');\r\n      } else {\r\n        titleBlocks.forEach(item => {\r\n          item.classList.remove('msg-active');\r\n        });\r\n        event.target.closest('.title_block').classList.add('msg-active');\r\n      }\r\n    });\r\n  }\r\n  \r\n  /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (accordion);\n\n//# sourceURL=webpack://layout/./src/modules/accordion.js?");
 
 /***/ }),
 
@@ -27,6 +37,16 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _mod
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst contacts = () => {\r\n    const arrow = document.querySelector('.header-contacts__arrow')\r\n    const number = document.querySelector('.header-contacts__phone-number-accord a')\r\n    let count = 0\r\n\r\n    arrow.addEventListener('click', function(){\r\n        if(count == 0){\r\n            number.style.opacity = 1\r\n            number.style.marginTop = 20 + 'px'\r\n            arrow.style.transform = 'rotate(180deg)'\r\n            count++\r\n        }else if(count == 1){\r\n            number.style.opacity = 0\r\n            number.style.marginTop = 0 + 'px'\r\n            arrow.style.transform = 'rotate(0deg)'\r\n            count = 0\r\n        }\r\n    })\r\n}\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (contacts);\n\n//# sourceURL=webpack://layout/./src/modules/contacts.js?");
+
+/***/ }),
+
+/***/ "./src/modules/formula.js":
+/*!********************************!*\
+  !*** ./src/modules/formula.js ***!
+  \********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nconst formula = () => {\r\n\r\n    const itemActive = document.querySelectorAll('.formula-item')\r\n\r\n    itemActive.forEach(function (item) {\r\n        item.addEventListener('mouseover', function() {\r\n            this.classList.add('active-item')\r\n        })\r\n        item.addEventListener(\"mouseout\",function() {\r\n            this.classList.remove('active-item')\r\n        })\r\n    })\r\n\r\n}\r\n\r\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (formula);   \n\n//# sourceURL=webpack://layout/./src/modules/formula.js?");
 
 /***/ }),
 
