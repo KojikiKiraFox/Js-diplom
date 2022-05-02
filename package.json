@@ -1,7 +1,6 @@
 {
   "name": "layout",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
@@ -12,5 +11,14 @@
   "devDependencies": {
     "webpack": "^5.72.0",
     "webpack-cli": "^4.9.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KojikiKiraFox/Js-diplom.git"
+  },
+  "bugs": {
+    "url": "https://github.com/KojikiKiraFox/Js-diplom/issues"
+  },
+  "homepage": "https://github.com/KojikiKiraFox/Js-diplom#readme",
+  "description": ""
 }
