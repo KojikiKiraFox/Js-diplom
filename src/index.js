@@ -5,6 +5,11 @@ import modal from './modules/modal';
 import maskPhone from './modules/maskPhone';
 import formula from './modules/formula';
 import accordion from './modules/accordion'
+import validator from './modules/validator'
+import repair from './modules/repair'
+import sendForm from './modules/sendForm'
+import closeModal from './modules/closeModal'
+
 
 
 
@@ -17,3 +22,7 @@ modal()
 maskPhone()
 formula()
 accordion()
+validator()
+repair()
+sendForm()
+closeModal()
