@@ -8,12 +8,11 @@ import validator from './modules/validator'
 import repair from './modules/repair'
 import sendForm from './modules/sendForm'
 import closeModal from './modules/closeModal'
-import documents from "./modules/documents"
+import documentTransparency from "./modules/documentTransparency"
 import privacyPoliceAndRepair from "./modules/privacyPoliceAndRepair"
 import portfolioModal from "./modules/portfolioModal"
-
+import sliderPortfolio from './modules/sliderPortfolio'
 import popupOpenConsultation from './modules/popupOpenConsultation'
-
 import sliderReviews from './modules/sliderReviews'
 import loadingDate from './modules/loadingDate'
 
@@ -32,11 +31,11 @@ accordion()
 validator()
 repair()
 closeModal()
-documents()
+documentTransparency()
 popupOpenConsultation()
 privacyPoliceAndRepair()
 portfolioModal()
-
+sliderPortfolio()
 sendForm({
     formId: 'feedback1',
     someElem: [
