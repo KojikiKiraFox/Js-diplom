@@ -1,17 +1,18 @@
 const accordion = () => {
-    const accordion = document.querySelector('.accordion'),
-      titleBlocks = accordion.querySelectorAll('.title_block');
-  
-    accordion.addEventListener('click', event => {
-      if (event.target.closest('.title_block').classList.contains('msg-active')) {
-        event.target.classList.remove('msg-active');
+ const accordeon = document.querySelector('.accordion'),
+    titles = document.querySelectorAll('.title_block');
+
+  accordeon.addEventListener('click', event => {
+    const target = event.target;
+
+    titles.forEach(item => {
+      if (item === target && !item.classList.contains('msg-active')) {
+        item.classList.add('msg-active');
       } else {
-        titleBlocks.forEach(item => {
-          item.classList.remove('msg-active');
-        });
-        event.target.closest('.title_block').classList.add('msg-active');
+        item.classList.remove('msg-active');
       }
     });
-  }
-  
-  export default accordion;
+  });
+};
+
+export default accordion;
