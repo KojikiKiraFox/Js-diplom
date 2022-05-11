@@ -1,6 +1,7 @@
 const closeModal = () => {
     const popup = document.querySelectorAll('.popup');
 
+
     popup.forEach(item => item.addEventListener('click', event => {
         let target = event.target;
 

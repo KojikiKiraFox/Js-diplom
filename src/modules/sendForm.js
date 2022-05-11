@@ -1,6 +1,9 @@
 const sendForm = ({ formId, someElem = [] }) => {
     const form = document.getElementById(formId)
     const statusBlock = document.createElement('div')
+
+    const popupThank = document.querySelector('.popup-thank')
+
     const loadText = 'Загрузка...'
     const errorText = 'Ошибка...'
     const successText = 'Спасибо! Наш менеджер с вами свяжется'
@@ -50,6 +53,8 @@ const sendForm = ({ formId, someElem = [] }) => {
                 .then(data => {
                     statusBlock.textContent = successText
 
+                    popupThank.style.visibility ='visible'
+                    
                     formElements.forEach(input => {
                         input.value = ''
                     })
@@ -62,6 +67,7 @@ const sendForm = ({ formId, someElem = [] }) => {
         }
     }
 
+
     try {
         if(!form) {
             throw new Error('Верните форму на место')
@@ -70,7 +76,7 @@ const sendForm = ({ formId, someElem = [] }) => {
 
         form.addEventListener('submit', (event) => {
             event.preventDefault()
-    
+            
             submitForm()
         })
     } catch(error) {

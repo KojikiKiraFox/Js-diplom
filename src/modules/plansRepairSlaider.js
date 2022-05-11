@@ -1,5 +1,5 @@
 const repairSlaider = () => {
-    const navList = document.querySelector('.nav-list-repair')
+const navList = document.querySelector('.nav-list-repair')
     const repairNavs = document.querySelectorAll('.repair-types-nav__item')
     const slideCount = document.querySelector('.slider-counter-content__current')
     const slideTotal = document.querySelector('.slider-counter-content__total')
@@ -24,6 +24,7 @@ const repairSlaider = () => {
             slideTotal.textContent = numSlides.querySelectorAll('.repair-types-slider__slide').length
             slideOn()
             slideCount.textContent = 1
+            indexSlaid = 0
             count = 1
         })
     })
