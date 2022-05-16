@@ -1,4 +1,4 @@
-const documentTransparency = () => {
+const modalDoc = () => {
     const modal = document.querySelector('.popup-transparency')
     const slides = document.querySelectorAll('.transparency-item')
     const transSlider = document.querySelector('.popup-transparency-slider')
@@ -73,4 +73,4 @@ const documentTransparency = () => {
     arrowInit()
 }
 
-export default documentTransparency
+export default modalDoc

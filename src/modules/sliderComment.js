@@ -16,6 +16,17 @@ const comment = () => {
         div.append(slides[key])
     })
 
+    const arrowInit = () => {
+        document.querySelector('#reviews-arrow_left').style.display = 'flex'
+        document.querySelector('#reviews-arrow_right').style.display = 'flex'
+        if (num == -1976) {
+            document.querySelector('#reviews-arrow_right').style.display = 'none'
+        }
+        if (num == 0) {
+            document.querySelector('#reviews-arrow_left').style.display = 'none'
+        }
+    }
+
     const init = () => {
         div.style.transform = `translateX(${num + 'px'})`
     }
@@ -23,13 +34,16 @@ const comment = () => {
     document.addEventListener('click', (e) => {
         if (e.target.closest('#reviews-arrow_right')) {
             num += -494
+            arrowInit()
             init()
         }
         if (e.target.closest('#reviews-arrow_left')) {
             num += 494
+            arrowInit()
             init()
         }
     })
+    arrowInit()
 }
 
 export default comment

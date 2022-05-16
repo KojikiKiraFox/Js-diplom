@@ -1,17 +1,16 @@
 const menu = () => {
-    const popupDialogMenu = document.querySelector('.popup-dialog-menu');
+    const menuOpen = document.querySelector('.menu')
+    const menuModal = document.querySelector('.popup-dialog-menu')
 
-  document.body.addEventListener('click', (event) => {
-    let target = event.target;
-    if (target.closest('.menu__icon') || target.closest('.popup-dialog-menu') || target.closest('.popup-menu-nav')) {
-        popupDialogMenu.style.transform = 'translate3d(0px,0,0)';
-      } else {
-        popupDialogMenu.style.transform = '';
-      }
-    if(target.closest('.popup-menu-nav__item') || target.closest('.link-list-menu') || target.closest('.close-menu')) {
-      popupDialogMenu.style.transform = '';
-    }
-  });
+    menuOpen.addEventListener('click', () => {
+        menuModal.style.marginRight = 645 + 'px'
+    })
+
+    document.addEventListener('click', (e) => {
+        if (e.target.closest('.close-menu')) {
+            menuModal.style.marginRight = 0
+        }
+    })
 }
 
-export default menu 
+export default menu

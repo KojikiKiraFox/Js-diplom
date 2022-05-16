@@ -1,20 +1,33 @@
 const scroll = () => {
-    const anchors = document.querySelectorAll('.popup-menu-nav__item > a[href*="#"], .button-footer > a[href*="#"]')
-    let menuModal = document.querySelector('.popup-dialog-menu')
+    const menuNav = document.querySelector('.popup-menu-nav')
+    const menuModal = document.querySelector('.popup-dialog-menu')
+    const anchors = menuNav.querySelectorAll('.popup-menu-nav__item > a')
+    const a = document.querySelector('.button-footer > a')
 
-    anchors.forEach((anchor) => {
-    anchor.addEventListener('click', function (e) {
+    a.addEventListener('click', function (e) {
         e.preventDefault()
-        menuModal.style.marginRight = 0
-
-        const blockID = anchor.getAttribute('href').substr(1)
         
-        document.getElementById(blockID).scrollIntoView({
+        const blockID = a.getAttribute('href')
+        
+        document.querySelector(blockID).scrollIntoView({
         behavior: 'smooth',
         block: 'start'
         })
     })
-    })
 
+    for (let anchor of anchors) {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault()
+            menuModal.style.marginRight = 0
+
+            const blockID = anchor.getAttribute('href')
+
+            document.querySelector(blockID).scrollIntoView({
+      behavior: 'smooth',
+      block: 'start'
+            })
+        })
+    }
 }
+
 export default scroll

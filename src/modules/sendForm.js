@@ -1,87 +1,81 @@
 const sendForm = ({ formId, someElem = [] }) => {
-    const form = document.getElementById(formId)
-    const statusBlock = document.createElement('div')
+    const forms = document.querySelectorAll("form")
+    const popupThank = document.querySelector(".popup-thank")
+    const popupConsultation = document.querySelector(".popup-consultation")
+    const inputs = document.querySelectorAll("input")
+    
+    const errorMessage = "Что то пошло не так...",
+        loadMessage = "Отправка...",
+        warnCheck = "Поставьте галочку"
 
-    const popupThank = document.querySelector('.popup-thank')
+    const statusMessage = document.createElement("div")
 
-    const loadText = 'Загрузка...'
-    const errorText = 'Ошибка...'
-    const successText = 'Спасибо! Наш менеджер с вами свяжется'
+    popupThank.addEventListener("click", (event) => {
+        let target = event.target
 
-    const validate = (list) => {
-        let success = true
-
-        return success
-    }
-
-    const sendData = (data) => {
-        return fetch('https://jsonplaceholder.typicode.com/posts', {
-            method: 'POST',
-            body: JSON.stringify(data),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(res => res.json())
-    }
-
-    const submitForm = () => {
-        const formElements = form.querySelectorAll('input')
-        const formData = new FormData(form)
-        const formBody = {}
-
-        statusBlock.textContent = loadText
-        form.append(statusBlock)
-
-        formData.forEach((val, key) => {
-            formBody[key] = val
-        })
-
-        someElem.forEach(elem => {
-            const element = document.getElementById(elem.id)
-
-            if(elem.type === 'block') {
-                formBody[elem.id] = element.textContent
-            } else if(elem.type === 'input') {
-                formBody[elem.id] = element.value
-            }
-        })
-
-        console.log('submit')
-
-        if(validate(formElements)) {
-            sendData(formBody)
-                .then(data => {
-                    statusBlock.textContent = successText
-
-                    popupThank.style.visibility ='visible'
-                    
-                    formElements.forEach(input => {
-                        input.value = ''
-                    })
-                })
-                .catch(error => {
-                    statusBlock.textContent = errorText
-                })
-        } else {
-            alert('Данные не валидны!!!')
+        if (target.matches(".close-thank") && target.closest(".popup-thank")) {
+        popupThank.removeAttribute("style")
+        document.querySelector("body").removeAttribute("style")
         }
+    })
+
+    const postData = (body) => {
+        return fetch("https://jsonplaceholder.typicode.com/posts", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(body)
+        })
     }
 
-
-    try {
-        if(!form) {
-            throw new Error('Верните форму на место')
-        }
-
-
-        form.addEventListener('submit', (event) => {
+    forms.forEach((form) => {
+        form.addEventListener("submit", (event) => {
             event.preventDefault()
+        
+            const policy = form.querySelector(".checkbox__input")
+        
+            if (!policy.checked) {
+                form.appendChild(statusMessage)
+                statusMessage.style.cssText = `font-size: 14px;
+            color:red`
+                statusMessage.textContent = warnCheck
+            } else {
+                statusMessage.textContent = loadMessage
+                form.appendChild(statusMessage)
+                statusMessage.style.cssText = `font-size: 14px;
+                color:black`
             
-            submitForm()
+                const formData = new FormData(form)
+                let body = {}
+                formData.forEach((val, key) => {
+                body[key] = val
+                })
+                
+            postData(body)
+                .then((response) => {
+                    if (response.status !== 201) {
+                    throw new Error("status network not 201")
+                    } else {
+                    document.querySelector("body").removeAttribute("style")
+                    popupConsultation.removeAttribute("style")
+                    statusMessage.textContent = ""
+                    popupThank.style.visibility = "visible"
+                    document.querySelector("body").style.overflow = "hidden"
+
+                    inputs.forEach((elem) => (elem.value = ""))
+                }
+                })
+                .catch((error) => {
+                statusMessage.textContent = errorMessage
+                setTimeout(() => {
+                    statusMessage.textContent = ""
+                }, 3000)
+                console.error(error)
+                })
+            }
         })
-    } catch(error) {
-        console.log(error.message);
-    }
+    })
 }
 
 export default sendForm
