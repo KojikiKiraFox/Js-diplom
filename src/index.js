@@ -1,5 +1,4 @@
 import admin from "./modules/admin"
-import signinAdmin from "./modules/signinAdmin"
 import contacts from "./modules/contacts"
 import menu from "./modules/menu"
 import scroll from "./modules/scroll"
@@ -17,9 +16,10 @@ import comment from "./modules/sliderComment"
 import openConsultation from "./modules/consultation"
 import documentAdaptive from "./modules/documentsAdaptive"
 import price from "./modules/price"
+import validation from "./modules/validation"
+import sliderSwipe from "./modules/sliderSwipe"
 
 admin()
-signinAdmin()
 contacts()
 menu()
 scroll()
@@ -36,6 +36,12 @@ comment()
 openConsultation()
 documentAdaptive()
 price()
+validation()
+sliderSwipe('#portfolio', '.portfolio-slider')
+sliderSwipe('#repair-types', '.nav-list')
+sliderSwipe('#formula', '.formula-slider')
+sliderSwipe('#reviews', '.reviews-slider')
+sliderSwipe('#transparency', '.transparency-slider')
 
 sendForm({
     formId: 'feedback1',

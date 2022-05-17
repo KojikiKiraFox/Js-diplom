@@ -35,7 +35,8 @@ const render = (objects, title) => {
         var tbodys = wrapper.querySelectorAll('tbody')
 
         wrapper.style.display = 'flex'
-        // wrapper.style.overflewX = 'hidden'
+        // wrapper.style.overflowX = 'hidden'
+        block.querySelector('.nav-popup-repair-types').style.overflow = 'scroll'
 
         const swiper = () => {
             const tab = tabs.querySelectorAll('.popup-repair-types-nav__item')
@@ -56,7 +57,7 @@ const render = (objects, title) => {
             tab[0].classList.add('active')
 
             block.addEventListener('click', (e) => {
-                if (e.target.closet('.popup-repair-types-nav__item')) {
+                if (e.target.closest('.popup-repair-types-nav__item')) {
                     positionChanger()
                     tab.forEach((el, i) => {
                         el.classList.remove('active')
@@ -68,8 +69,17 @@ const render = (objects, title) => {
         setTimeout(swiper, 1500)
     } else if (title == 'toAdmin') {
         const tbody = document.getElementById('tbody')
+        const filter = document.getElementById('typeItem')
 
         tbody.innerHTML = ''
+        filter.innerHTML = ''
+
+        filter.insertAdjacentHTML('beforeend', `<option value="" selected></option>`)
+        filter.insertAdjacentHTML('beforeend', `<option value="Все услуги">Все услуги</option>`)
+
+        Array.from(new Set(types)).forEach((type, i) => {
+            filter.insertAdjacentHTML('beforeend', `<option value="${type}">${type}</option>`)
+        })
     }
 
     objects.forEach((obj, i) => {
